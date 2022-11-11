@@ -1,0 +1,59 @@
+Cycle Design
+
+Casting Folder:
+	Actor_class
+		(methods)
+		__init__(self):
+			(variables)
+			_text
+			_font_size
+			_color
+			_postion
+			_velocity
+
+		get_color
+
+		get_font_size
+
+		get_position
+	
+	Cast_class
+
+	Cycle Trail_class
+
+	Score_class
+
+	Cycle_class:
+		Cycle_Player_1(Cycle)_child_class
+
+		Cycle_Player_2(Cycle)_child_class
+
+Directing Folder:
+	Director_class
+
+Scripting Folder:
+	Action_class:
+		ControlActorsAction(Action)_child_class
+	
+		DrawActorsAction(Action)_child_class
+
+		HandleCollisionsAction(Action)_child_class
+
+		MoveActorsAction(Action)_child_class
+	
+	Script_class
+
+Services Folder:
+	KeyboardService_class
+
+	VideoService_class
+
+Shared Folder:
+	Color_class
+
+	Point_class
+
+__main__.py (runs the game)
+constants.py (holds game constants)
+		
+	
