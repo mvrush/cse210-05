@@ -1,7 +1,7 @@
 Cycle Design
 
 Casting Folder:
-	Actor_class
+	Actor_class:
 		(methods)
 		__init__(self):
 			(variables)
@@ -11,25 +11,75 @@ Casting Folder:
 			_postion
 			_velocity
 
-		get_color
-
-		get_font_size
-
-		get_position
+		get_color()
+		get_font_size()
+		get_position()
+		get_font_size()
+		get_position()
+		get_text()
+		get_velocity()
+		move_next()
+		set_color()
+		set_font_size()
+		set_position()
+		set_font_size()
+		set_position()
+		set_text()
+		set_velocity()
+		
 	
-	Cast_class
+	Cast_class:
+		(methods)
+		def __init__(self):
+        		self._actors
+		add_actor()
+		get_actors()
+		get_all_actors()
+		get_first_actor()
+		remove_actor()		
+				
 
-	Cycle Trail_class
 
-	Score_class
+	Score_class(Actor):
+		(methods)
+		def __init__(self):
+			super().__init__()
+			self._points
+			self.add_points()
+		
+		def add_points()
 
-	Cycle_class:
+	Cycle_class(Actor):
+		(methods)
+		def __init__(self):
+			super().__init__()
+			self._segments
+			self._cycle_trail
+		get_segments()
+		move_next()
+		get_cycle()
+		grow_trail()
+		turn_cycle()
+		_prepare_trail()
+
+		
 		Cycle_Player_1(Cycle)_child_class
+			(methods)
+			def __init__(self):
+				super().__init__()
 
 		Cycle_Player_2(Cycle)_child_class
+			(methods)
+			def __init__(self):
+				super().__init__()
 
 Directing Folder:
 	Director_class
+		(methods)
+		def __init__():
+			self._video_service = video_service
+		start_game()
+		_execute_actions()
 
 Scripting Folder:
 	Action_class:
