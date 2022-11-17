@@ -41,11 +41,13 @@ class HandleCollisionsAction(Action):
         snake = cast.get_first_actor("cycles")
         head = snake.get_head()
 
+    """ REMOVE FOOD BLOCK FOR CYCLE     
         if head.get_position().equals(food.get_position()):
             points = food.get_points()
             snake.grow_tail(points)
             score.add_points(points)
             food.reset()
+    """
     
     def _handle_segment_collision(self, cast):
         """Sets the game over flag if the snake collides with one of its segments.
@@ -83,4 +85,4 @@ class HandleCollisionsAction(Action):
 
             for segment in segments:
                 segment.set_color(constants.WHITE)
-            food.set_color(constants.WHITE)
+            #food.set_color(constants.WHITE) # Don't need food with Cycle
