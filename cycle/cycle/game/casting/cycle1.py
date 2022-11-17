@@ -3,7 +3,7 @@ from game.casting.actor import Actor
 from game.shared.point import Point
 
 
-class Snake(Actor):
+class Cycle1(Actor):
     """
     A long limbless reptile.
     
