@@ -65,7 +65,7 @@ class Cycle1(Actor):
             position = Point(x - i * constants.CELL_SIZE, y) # Looks at the value of x, subtracts the index position for each length of the snake, multiplies it by the CELL_SIZE for the X position, just gives the y value for Y position
             velocity = Point(1 * constants.CELL_SIZE, 0) # Sets the velocity to 1 times the CELL_SIZE(15) for X and 0 for Y.
             text = "8" if i == 0 else "#" # Says draw an "8" in index position '0' for the snake head. Every other index position is a "#"
-            color = constants.YELLOW if i == 0 else constants.LIGHT_BLUE # Says draw index position 0 as "YELLOW", everything else "LIGHT_BLUE"
+            color = constants.BLUE if i == 0 else constants.LIGHT_BLUE # Says draw index position 0 as "YELLOW", everything else "LIGHT_BLUE"
             
             segment = Actor()
             segment.set_position(position)
