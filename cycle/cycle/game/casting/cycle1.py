@@ -13,7 +13,7 @@ class Cycle1(Actor):
         _points (int): The number of points the food is worth.
     """
     def __init__(self):
-        super().__init__()
+        super().__init__() # This gives us access to all variables and methods in the Actor() class
         self._segments = []
         self._prepare_body()
 
@@ -34,18 +34,24 @@ class Cycle1(Actor):
     def get_head(self):
         return self._segments[0]
 
-    def grow_tail(self, number_of_segments):
+    def grow_tail(self, cast, number_of_segments): # Receives the instance of 'cast' and 'number_of_segments' values from 'snake.grow_tail(cast, 1)' found in draw_actors_action.py
         for i in range(number_of_segments):
             tail = self._segments[-1]
             velocity = tail.get_velocity()
             offset = velocity.reverse()
             position = tail.get_position().add(offset)
             
+            message = cast.get_first_actor("messages") # uses the instance of 'cast' to pull the message
+            #print(message) # used for testing to see what I got for a message
+
             segment = Actor()
             segment.set_position(position)
             segment.set_velocity(velocity)
             segment.set_text("#")
-            segment.set_color(constants.GREEN)
+            if message == None: # checks for a message object. If 'None' writes segments in LIGHT_BLUE
+                segment.set_color(constants.LIGHT_BLUE)
+            else:
+                segment.set_color(constants.WHITE) # if there is a message object, writes segments in WHITE. You only get a message object when game over.
             self._segments.append(segment)
 
     def turn_head(self, velocity):
@@ -56,10 +62,10 @@ class Cycle1(Actor):
         y = int(constants.MAX_Y / 2)
 
         for i in range(constants.SNAKE_LENGTH):
-            position = Point(x - i * constants.CELL_SIZE, y)
-            velocity = Point(1 * constants.CELL_SIZE, 0)
-            text = "8" if i == 0 else "#"
-            color = constants.YELLOW if i == 0 else constants.GREEN
+            position = Point(x - i * constants.CELL_SIZE, y) # Looks at the value of x, subtracts the index position for each length of the snake, multiplies it by the CELL_SIZE for the X position, just gives the y value for Y position
+            velocity = Point(1 * constants.CELL_SIZE, 0) # Sets the velocity to 1 times the CELL_SIZE(15) for X and 0 for Y.
+            text = "8" if i == 0 else "#" # Says draw an "8" in index position '0' for the snake head. Every other index position is a "#"
+            color = constants.YELLOW if i == 0 else constants.LIGHT_BLUE # Says draw index position 0 as "YELLOW", everything else "LIGHT_BLUE"
             
             segment = Actor()
             segment.set_position(position)
