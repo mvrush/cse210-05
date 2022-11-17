@@ -38,7 +38,7 @@ class HandleCollisionsAction(Action):
         """
         score = cast.get_first_actor("scores")
         food = cast.get_first_actor("foods")
-        snake = cast.get_first_actor("snakes")
+        snake = cast.get_first_actor("cycles")
         head = snake.get_head()
 
         if head.get_position().equals(food.get_position()):
