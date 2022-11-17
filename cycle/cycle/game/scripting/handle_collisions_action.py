@@ -41,7 +41,7 @@ class HandleCollisionsAction(Action):
         snake = cast.get_first_actor("cycles")
         head = snake.get_head()
 
-    """ REMOVE FOOD BLOCK FOR CYCLE     
+    """ REMOVE FOOD BLOCK FOR CYCLE
         if head.get_position().equals(food.get_position()):
             points = food.get_points()
             snake.grow_tail(points)
@@ -72,7 +72,7 @@ class HandleCollisionsAction(Action):
         if self._is_game_over:
             snake = cast.get_first_actor("cycles")
             segments = snake.get_segments()
-            food = cast.get_first_actor("foods")
+            #food = cast.get_first_actor("foods") # Don't need food with Cycle
 
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
