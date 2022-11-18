@@ -13,6 +13,7 @@ SNAKE_LENGTH = 1 # This was 8 for snake, I changed it to 1 for Cycle to start wi
 WHITE = Color(255, 255, 255)
 RED = Color(255, 0, 0)
 YELLOW = Color(255, 255, 0)
+LIGHT_YELLOW = Color(227, 227, 100)
 GREEN = Color(0, 255, 0)
 BLUE = Color(0, 0, 255)
 LIGHT_BLUE = Color(52, 192, 235)
