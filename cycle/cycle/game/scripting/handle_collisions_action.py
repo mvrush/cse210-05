@@ -90,4 +90,30 @@ class HandleCollisionsAction(Action):
 
             # Check to see if cycle1 crashes into cycle2's trail.
             if head_cycle1.get_position().equals(segment.get_position()):
-                self._is_game_over = True
+                self._is_game_over = True        
+
+
+        
+    def _handle_game_over(self, cast):
+        """Shows the 'game over' message and turns the snake and food white if the game is over.
+        
+        Args:
+            cast (Cast): The cast of Actors in the game.
+        """
+        if self._is_game_over:
+            snake = cast.get_first_actor("cycles")
+            segments = snake.get_segments()
+            #food = cast.get_first_actor("foods") # Don't need food with Cycle
+
+            x = int(constants.MAX_X / 2)
+            y = int(constants.MAX_Y / 2)
+            position = Point(x, y)
+
+            message = Actor()
+            message.set_text("Game Over!")
+            message.set_position(position)
+            cast.add_actor("messages", message)
+
+            for segment in segments:
+                segment.set_color(constants.WHITE)
+            #food.set_color(constants.WHITE) # Don't need food with Cycle
