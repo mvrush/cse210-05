@@ -101,19 +101,25 @@ class HandleCollisionsAction(Action):
             cast (Cast): The cast of Actors in the game.
         """
         if self._is_game_over:
-            snake = cast.get_first_actor("cycles")
-            segments = snake.get_segments()
-            #food = cast.get_first_actor("foods") # Don't need food with Cycle
+            cycle1 = cast.get_first_actor("cycles") # gets cycle1 and all it's properties
+            cycle2 = cast.get_second_actor("cycles") # gets cycle2 and all it's properties
+            segments_cycle1 = cycle1.get_segments() # Gets the segments for cycle1
+            segments_cycle2 = cycle2.get_segments() # Gets the segments for cycle2
+            
 
+            # The next 3 lines position the 'Game Over!' message in the middle of the screen
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
             position = Point(x, y)
 
-            message = Actor()
-            message.set_text("Game Over!")
-            message.set_position(position)
-            cast.add_actor("messages", message)
+            message = Actor() # Creates an instance of the Actor() class and calls it 'message'
+            message.set_text("Game Over!") # sets the text to our 'message' instance of the Actor() class
+            message.set_position(position) # uses our 'position' variable a few lines above to set the position for the 'Game Over!' message.
+            cast.add_actor("messages", message) # Adds the message to the "messages" group
 
-            for segment in segments:
+            # The next two 'for' loops turn the already drawn segments of the cycles from their color to white.
+            for segment in segments_cycle1:
                 segment.set_color(constants.WHITE)
-            #food.set_color(constants.WHITE) # Don't need food with Cycle
+            
+            for segment in segments_cycle2:
+                segment.set_color(constants.WHITE)
