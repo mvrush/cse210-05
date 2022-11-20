@@ -113,7 +113,7 @@ class HandleCollisionsAction(Action):
             position = Point(x, y)
 
             message = Actor() # Creates an instance of the Actor() class and calls it 'message'
-            message.set_text("Game Over!") # sets the text to our 'message' instance of the Actor() class
+            message.set_text("                                 Game Over!\nPlayers keep moving and turning but don't run into each other") # sets the text to our 'message' instance of the Actor() class
             message.set_position(position) # uses our 'position' variable a few lines above to set the position for the 'Game Over!' message.
             cast.add_actor("messages", message) # Adds the message to the "messages" group
 
