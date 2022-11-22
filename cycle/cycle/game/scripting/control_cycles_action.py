@@ -20,8 +20,9 @@ class ControlCyclesAction(Action):
             keyboard_service (KeyboardService): An instance of KeyboardService.
         """
         self._keyboard_service = keyboard_service
-        self._direction_cycle1 = Point(0, -constants.CELL_SIZE) # Default direction was set with the '-constants.CELL_SIZE)' which is 15. So it moves 1 cell negative(up) on the y-axis causing movement by default.
-        self._direction_cycle2 = Point(0, -constants.CELL_SIZE) # Default direction was set with the '-constants.CELL_SIZE)' which is 15. So it moves 1 cell negative(up) on the y-axis causing movement by default.
+        # The next two lines tell which direction and speed to move each cycle by default. To set their starting position, look in cycle1.py and cycle2.py
+        self._direction_cycle1 = Point(0, -constants.CELL_SIZE) # Default direction was set with the '-constants.CELL_SIZE)' which is -15. So it moves 1 cell negative(up) on the y-axis causing movement by default.
+        self._direction_cycle2 = Point(0, constants.CELL_SIZE) # Default direction was set with the 'constants.CELL_SIZE)' which is 15. So it moves 1 cell positive(down) on the y-axis causing movement by default.
         #self._direction = Point(0, 0) # Set this to Point(0, 0) so that the cycle will not move.
 
     def execute(self, cast, script):

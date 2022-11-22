@@ -5,12 +5,12 @@ from game.shared.point import Point
 
 class Cycle1(Actor):
     """
-    A long limbless reptile.
+    An amazing Cycle that leaves a colored trail of barrier light.
     
-    The responsibility of Snake is to move itself.
+    The responsibility of Cycle is to move itself and leave a trail.
 
     Attributes:
-        _points (int): The number of points the food is worth.
+        _segments = a list of trail segments.
     """
     def __init__(self):
         super().__init__() # This gives us access to all variables and methods in the Actor() class
@@ -58,8 +58,8 @@ class Cycle1(Actor):
         self._segments[0].set_velocity(velocity)
     
     def _prepare_body(self):
-        x = int(constants.MAX_X / 8) # set this to divide by 8 so it puts it in the first 1/8th of the screen (left). If you want it on the right side, make it -8.
-        y = int(constants.MAX_Y / -20) # Set this to divide by -20 so it starts at the bottom 1/20th of the screen. If you want it on the top, make it 20.
+        x = int(constants.MAX_X / 2) # set this to divide by 8 so it puts it in the first 1/8th of the screen (left). If you want it on the right side, make it -8. Or if you want the middle of the screen, set to '2'.
+        y = int(constants.MAX_Y) # Just set to MAX_Y for bottom of the screen. OR you can divide MAX_Y by -20 so it starts at the bottom 1/20th of the screen. If you want it on the top, divide MAX_Y by 20.
 
         for i in range(constants.SNAKE_LENGTH):
             position = Point(x - i * constants.CELL_SIZE, y) # Looks at the value of x, subtracts the index position for each length of the snake, multiplies it by the CELL_SIZE for the X position, just gives the y value for Y position

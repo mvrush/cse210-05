@@ -6,12 +6,12 @@ from game.shared.point import Point
 # This is a derived class from the Cycle1() class. So we don't need to duplicate all methods in this class.
 class Cycle2(Cycle1):
     """
-    A long limbless reptile.
+    An amazing Cycle that leaves a colored trail of barrier light.
     
-    The responsibility of Snake is to move itself.
+    The responsibility of Cycle is to move itself and leave a trail.
 
     Attributes:
-        _points (int): The number of points the food is worth.
+        _segments = a list of trail segments.
     """
     def __init__(self):
         super().__init__() # This gives us access to all variables and methods in the Actor() class
@@ -42,7 +42,7 @@ class Cycle2(Cycle1):
     
     def _prepare_body(self):
         x = int(constants.MAX_X / 2)
-        y = int(constants.MAX_Y / 2)
+        y = int(constants.MAX_Y - 15)
 
         for i in range(constants.SNAKE_LENGTH):
             position = Point(x - i * constants.CELL_SIZE, y) # Looks at the value of x, subtracts the index position for each length of the snake, multiplies it by the CELL_SIZE for the X position, just gives the y value for Y position
